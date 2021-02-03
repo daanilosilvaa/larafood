@@ -6,7 +6,7 @@
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('plans.index') }}">Planos</a></li>
+    <li class="breadcrumb-item active"><a href="{{ route('plans.index') }}" class="active">Planos</a></li>
 
 </ol>
     <h1>Planos <a href=" {{ route('plans.create') }} " class="btn btn-dark"><i class="fas fa-plus-square"></i></a></h1>
@@ -22,11 +22,12 @@
            </form>
         </div>
         <div class="card-body">
+            @include('admin.includes.alerts')
            <table class="table table-condensed">
                <thead>
                    <th>Nome</th>
                    <th>Preço</th>
-                   <th width: 100px>Ação</th>
+                   <th width="250">Ação</th>
                </thead>
                <tbody>
                     @foreach ($plans as $plan)
@@ -39,7 +40,8 @@
                                 R$ {{ number_format($plan->price, 2, ',', '.')}}
                             </td>
 
-                            <td style="width: 150px">
+                            <td style="width=10px">
+                                <a href="{{ route('details.plan.index', $plan->url) }}" class="btn btn-primary">Detalhes</a>
                                 <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-warning">View</a>
                             </td>
