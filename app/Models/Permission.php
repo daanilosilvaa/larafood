@@ -10,4 +10,14 @@ class Permission extends Model
         'name',
         'description',
     ];
+
+
+     /**
+    * Get Profile
+    */
+
+    public function profiles()
+    {
+        return $this->belongsToMany(Profile::class);
+    }
 }

@@ -4,7 +4,25 @@ Route::prefix('admin')
     ->namespace('Admin')
     ->group(function(){
 
-         /**
+
+    /**
+     *  Permissions x Profile
+     */
+    
+    Route::get('permissions/{id}/profile', 'ACL\PermissionProfileController@profiles')->name('permissions.profiles');
+
+        
+
+    /**
+     * Profile x Permissions
+     */
+    Route::get('profiles/{id}/permission/{idPermission}/detach', 'ACL\PermissionProfileController@detachPermissionProfile')->name('profiles.permission.detch');
+    Route::post('profiles/{id}/permissions', 'ACL\PermissionProfileController@attachPermissionsProfile')->name('profiles.permission.attach');
+    Route::any('profiles/{id}/permissions/create', 'ACL\PermissionProfileController@permissionsAvailable')->name('profiles.permission.available');
+    Route::get('profiles/{id}/permissions', 'ACL\PermissionProfileController@permissions')->name('profiles.permission');
+
+
+    /**
      * Routes Permissions
      */
     Route::any('permissions/search', 'ACL\PermissionController@search')->name('permissions.search');
