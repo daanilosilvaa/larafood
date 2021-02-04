@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Cadastrar Novo Plano')
+@section('title', 'Cadastrar Novo Perfil')
 
 @section('content_header')
     <h1>Cadastrar Novo Perfil</h1>
