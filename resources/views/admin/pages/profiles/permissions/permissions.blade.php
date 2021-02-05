@@ -21,6 +21,7 @@
             @include('admin.includes.alerts')
            <table class="table table-condensed">
                <thead>
+                   
                    <th>Nome</th>
                  
                    <th width="50">Ação</th>
@@ -29,6 +30,7 @@
                     @foreach ($permissions as $permission)
                     
                         <tr>
+                            
                             <td>
                                 {{$permission->name}}
                             </td>
