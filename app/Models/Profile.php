@@ -23,6 +23,15 @@ class Profile extends Model
     }
 
     /**
+    * Get Plans
+    */
+
+    public function plans()
+    {
+        return $this->belongsToMany(Plan::class);
+    }
+
+    /**
      * Permission not linked with this profile
      */
 
@@ -39,7 +48,7 @@ class Profile extends Model
                 $queryFilter->where('permissions.name', 'LIKE', "%{$filter}%");
         })
         ->paginate();
-        
+
         return $permissions;
     }
 }

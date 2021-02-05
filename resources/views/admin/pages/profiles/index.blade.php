@@ -28,7 +28,7 @@
                <thead>
                    <th>Nome</th>
                  
-                   <th width="250">Ação</th>
+                   <th width="270">Ação</th>
                </thead>
                <tbody>
                     @foreach ($profiles as $profile)
@@ -42,6 +42,7 @@
                                 <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-warning">View</a>
                                 <a href="{{ route('profiles.permission', $profile->id) }}" class="btn btn-dark"><i class="fas fa-lock"></i></a>
+                                <a href="{{ route('profiles.plans', $profile->id) }}" class="btn btn-dark"><i class="fas fa-list-alt"></i></a>
                             </td>
                            
                             
