@@ -30,6 +30,12 @@ class Plan extends Model
         return $this->BelongsToMany(Profile::class);
     }
 
+
+    public function tenants()
+    {
+        return $this->hasMany(Tenant::class);
+    }
+
     /**
     * Search Plan
     */
