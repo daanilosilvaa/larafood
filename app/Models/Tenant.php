@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tenant extends Model
 {
    protected $fillable = [
-       'cpnj',
+       'cnpj',
        'name',
        'url',
        'email',
