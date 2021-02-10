@@ -11,7 +11,7 @@ class SiteController extends Controller
   public function index()
   {
 
-    $plans = Plan::with('details')->orderBY('price', 'ASC')->get();
+    $plans = Plan::with('details')->orderBY('price' ,'ASC')->get();
     
       return view('site.pages.home.index', compact('plans'));
   }

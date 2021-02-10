@@ -28,6 +28,7 @@ class TenantService
             'cnpj' => $data['cnpj'],
             'name' => $data['empresa'],
             'email' => $data['email'],
+            
             'subscription' => now(),
             'expires_at' => now()->addDays(7),
 

@@ -17,6 +17,7 @@ class TenantObserve
     {
         $tenant->uuid = Str::uuid();
         $tenant->url = Str::kebab($tenant->name);
+
     }
 
     /**
