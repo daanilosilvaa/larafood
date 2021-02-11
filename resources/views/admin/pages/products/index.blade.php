@@ -40,9 +40,9 @@
                             </td>
                           
                             <td style="width=10px">
-                                <a href="{{ route('products.categories', $product->id) }}" class="btn btn-dark" title="Categorias"><i class="fas fa-layer-group"></i></a>
                                 <a href="{{ route('products.edit', $product->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning">View</a>
+                                <a href="{{ route('products.categories', $product->id) }}" class="btn btn-dark" title="Categorias"><i class="fas fa-layer-group"></i></a>
                             </td>                    
                         </tr>
                     @endforeach

@@ -47,6 +47,7 @@ class CategoryProductController extends Controller
         }
 
         $products = $category->products()->paginate();
+      
 
 
         return view('admin.pages.categories.products.products', compact('category', 'products'));

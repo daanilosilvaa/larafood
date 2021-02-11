@@ -34,7 +34,7 @@ class Product extends Model
         })
         ->where(function ($queryFilter) use ($filter){
             if($filter)
-                $queryFilter->where('categories.title', 'LIKE', "%{$filter}%");
+                $queryFilter->where('categories.name', 'LIKE', "%{$filter}%");
         })
         ->paginate();
 

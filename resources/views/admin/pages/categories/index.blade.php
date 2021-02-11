@@ -27,7 +27,7 @@
                <thead>
                    <th>Nome</th>
                    <th>Descrição</th>
-                   <th width="150" class="text-center">Ação</th>
+                   <th width="200" class="text-center">Ação</th>
                </thead>
                <tbody>
                     @foreach ($categories as $category)                 
@@ -41,6 +41,7 @@
                             <td style="width=10px">
                                 <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('categories.show', $category->id) }}" class="btn btn-warning">View</a>
+                                <a href="{{ route('categories.products', [$category->id]) }}" class="btn btn-dark"><i class="fas fa-hamburger"></i></a>
                             </td>                    
                         </tr>
                     @endforeach
