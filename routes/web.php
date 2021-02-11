@@ -7,6 +7,13 @@ Route::prefix('admin')
 
 
     /**
+     * Routes Table
+     */
+    Route::any('tables/search', 'TableController@search')->name('tables.search');
+    Route::resource('tables', 'TableController');
+
+
+    /**
      * Plans x Profile
      */
     Route::get('products/{id}/category/{idCategory}/detach', 'CategoryProductController@detachCategoryProduct')->name('products.category.detch');
