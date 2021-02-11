@@ -5,6 +5,17 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function(){
 
+
+    /**
+     * Plans x Profile
+     */
+    Route::get('products/{id}/category/{idCategory}/detach', 'CategoryProductController@detachCategoryProduct')->name('products.category.detch');
+    Route::post('products/{id}/categories', 'CategoryProductController@attachCategorysProduct')->name('products.categories.attach');
+    Route::any('products/{id}/categories/create', 'CategoryProductController@categoriesAvailable')->name('products.categories.available');
+    Route::get('products/{id}/categories', 'CategoryProductController@categories')->name('products.categories');
+    Route::get('categories/{id}/products', 'CategoryProductController@products')->name('categories.products');
+
+
     /**
      * Routes Products
      */

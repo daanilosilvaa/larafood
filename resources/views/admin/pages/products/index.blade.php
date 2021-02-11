@@ -25,9 +25,9 @@
             @include('admin.includes.alerts')
            <table class="table table-condensed">
                <thead>
-                   <th width="90px">image</th>
+                   <th width="90">image</th>
                    <th>Titulo</th>
-                   <th width="150" class="text-center">Ação</th>
+                   <th width="250" class="text-center">Ação</th>
                </thead>
                <tbody>
                     @foreach ($products as $product)                 
@@ -40,6 +40,7 @@
                             </td>
                           
                             <td style="width=10px">
+                                <a href="{{ route('products.categories', $product->id) }}" class="btn btn-dark" title="Categorias"><i class="fas fa-layer-group"></i></a>
                                 <a href="{{ route('products.edit', $product->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning">View</a>
                             </td>                    
