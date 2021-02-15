@@ -5,6 +5,12 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function(){
 
+    /**
+     * Routes Sale
+     */
+    Route::any('sales/search', 'SaleController@search')->name('sales.search');
+    Route::resource('sales', 'SaleController');
+
 
     /**
      * Routes Table

@@ -19,7 +19,7 @@
         <div class="card-body">    
             <ul>
                 <li>
-                    <strong>Identificador da mesa:</strong>{{ $table->identify }}
+                    <strong>Nome:</strong>{{ $table->identify }}
                 </li>
                 <li>
                     <strong>Descrição</strong>{{ $table->description }}

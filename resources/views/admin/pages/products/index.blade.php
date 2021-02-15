@@ -13,7 +13,7 @@
 @stop
 
 @section('content')
-    <div class="card">
+    <div class="card table-responsive">
         <div class="card-header">
            <form action="{{ route('products.search')}}" method="POST" class="form form-inline">
                @csrf
@@ -27,6 +27,7 @@
                <thead>
                    <th width="90">image</th>
                    <th>Titulo</th>
+                   <th>Preço</th>
                    <th width="250" class="text-center">Ação</th>
                </thead>
                <tbody>
@@ -37,6 +38,9 @@
                             </td>
                             <td>
                                 {{$product->title}}
+                            </td>
+                            <td>
+                                {{number_format($product->price, 2, ',', '.')}}
                             </td>
                           
                             <td style="width=10px">

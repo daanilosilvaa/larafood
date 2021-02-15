@@ -16,6 +16,7 @@ class ProfileController extends Controller
     {
 
         $this->repository  = $profile;
+        $this->middleware(['can:Perfils']);
         
     }
     /**

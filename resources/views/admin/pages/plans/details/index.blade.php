@@ -25,7 +25,7 @@
                <thead>
                    <th>Nome</th>
                   
-                   <th width: 100px>Ação</th>
+                   <th width="100px">Ação</th>
                </thead>
                <tbody>
                     @foreach ($details as $detail)

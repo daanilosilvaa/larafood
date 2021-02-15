@@ -1,22 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Admin\ACL;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUpdatePermission;
-use App\Models\Permission;
+use App\Http\Requests\StoreUpdateSale;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 
-class permissionController extends Controller
+class SaleController extends Controller
 {
+    private $repository;
 
-    protected $repository;
-
-    public function __construct(permission $permission)
+    public function __construct(Sale $sale)
     {
-
-        $this->repository  = $permission;
-        $this->middleware(['can:Permissões']);
+        $this->repository = $sale;
+        $this->middleware(['can:Vendas']);
         
     }
     /**
@@ -26,9 +24,9 @@ class permissionController extends Controller
      */
     public function index()
     {
-        $permissions = $this->repository->paginate();
-        
-        return view('admin.pages.permissions.index', compact('permissions'));
+        $sales = $this->repository->paginate();
+
+        return view('admin.pages.sales.index' , compact('sales'));
     }
 
     /**
@@ -38,20 +36,20 @@ class permissionController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.permissions.create');
+        return view('admin.pages.sales.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  App\Http\Requests\StoreUpdatePermission  $request
+     * @param  App\Http\Requests\StoreUpdateSale  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUpdatePermission $request)
+    public function store(StoreUpdateSale $request)
     {
-       $this->repository->create($request->all());
+        $this->repository->create($request->except('_token'));
 
-       return redirect()->route('permissions.index');
+        return redirect()->route('sales.index');
     }
 
     /**
@@ -62,11 +60,14 @@ class permissionController extends Controller
      */
     public function show($id)
     {
-        if(!$permission = $this->repository->find($id)){
-            return redirect()->back();
-        }
+        $sale = $this->repository->where('id', $id)->first();
 
-        return view('admin.pages.permissions.show',compact('permission'));   
+        if(!$sale)
+            return redirect()->back();
+        
+        return view('admin.pages.sales.show', [
+            'sale' =>$sale,
+        ]);
     }
 
     /**
@@ -77,28 +78,28 @@ class permissionController extends Controller
      */
     public function edit($id)
     {
-      if(!$permission = $this->repository->find($id)){
-          return redirect()->back();
-      }
+        if(!$sale = $this->repository->find($id)) {
+            return redirect()->back();
+        }
 
-      return view('admin.pages.permissions.edit',compact('permission'));
+        return view('admin.pages.sales.edit', compact('sale'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  App\Http\Requests\StoreUpdatePermission  $request
+     * @param  App\Http\Requests\StoreUpdateSale  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreUpdatePermission $request, $id)
+    public function update(StoreUpdateSale $request, $id)
     {
-        if(!$permission = $this->repository->find($id)){
+        if (!$sale = $this->repository->find($id)) {
             return redirect()->back();
         }
-        $permission->update($request->all());
-        return redirect()->route('permissions.index');
+        $sale->update($request->all());
 
+       return redirect()->route('sales.index');
     }
 
     /**
@@ -109,16 +110,13 @@ class permissionController extends Controller
      */
     public function destroy($id)
     {
-      
-        if(!$permission = $this->repository->find($id)){
+        if (!$sale = $this->repository->find($id)) {
             return redirect()->back();
         }
+        $sale->delete();
 
-        $permission->delete();
-        return redirect()->route('permissions.index')
-                        ->with('message', 'Registro deletado com sucesso');
+       return redirect()->route('sales.index');
     }
-
 
     /**
      * Search results
@@ -128,18 +126,17 @@ class permissionController extends Controller
      */
     public function search(Request $request)
     {
-
         $filters = $request->only('filter');
 
-        $permissions = $this->repository
+        $sales = $this->repository
                                 ->where(function($query) use ($request){
                                     if($request->filter) {
-                                        $query->where('name', $request->filter);
                                         $query->orWhere('description', 'LIKE', "%{$request->filter}%");
+                                        $query->orWhere('identify', $request->filter); 
                                     }
                                 })
                                 ->paginate();
-        return view('admin.pages.permissions.index',compact('permissions', 'filters'));
+        return view('admin.pages.sales.index',compact('sales', 'filters'));
 
     }
 }
