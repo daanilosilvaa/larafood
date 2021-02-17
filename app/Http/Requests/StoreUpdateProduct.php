@@ -35,7 +35,6 @@ class StoreUpdateProduct extends FormRequest
     
 
         if($this->method() == 'PUT'){
-            $rules['description'] = ['nullable', 'string', 'min:3','max:500'];
             $rules['image'] = ['nullable', 'image'];
         }
 
