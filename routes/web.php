@@ -6,6 +6,12 @@ Route::prefix('admin')
     ->group(function(){
 
     /**
+     * Routes Roles
+     */
+    Route::any('roles/search', 'ACL\RoleController@search')->name('roles.search');
+    Route::resource('roles', 'ACL\RoleController');
+
+    /**
      * Routes Company
      */
     Route::any('tenants/search', 'TenantController@search')->name('tenants.search');
