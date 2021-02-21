@@ -10,7 +10,7 @@ return [
 
 
      'admins' => [
-         'daanilo-silvaa@hotmail.com',
-         'admin@especializati.com.br'
+        'daanilo-silvaa@hotmail.com',
+        'admin@especializati.com.br'
      ]
 ];

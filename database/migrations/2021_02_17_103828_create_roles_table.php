@@ -25,6 +25,7 @@ class CreateRolesTable extends Migration
          */
         Schema::create('permission_role', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('tenant_id');
             $table->unsignedBigInteger('permission_id');
             $table->unsignedBigInteger('role_id');
 
@@ -36,6 +37,11 @@ class CreateRolesTable extends Migration
             $table->foreign('role_id')
                     ->references('id')
                     ->on('roles')
+                    ->onDelete('cascade');
+                    
+            $table->foreign('tenant_id')
+                    ->references('id')
+                    ->on('tenants')
                     ->onDelete('cascade');
         });
     }

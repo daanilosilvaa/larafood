@@ -26,30 +26,23 @@
             @include('admin.includes.alerts')
            <table class="table table-condensed">
                <thead>
-                   <th>Nome</th>
-                 
-                   <th width="270">Ação</th>
+                   <th>Nome</th>                 
+                   <th width="200">Ação</th>
                </thead>
                <tbody>
-                    @foreach ($roles as $role)
-                    
+                    @foreach ($roles as $role)                   
                         <tr>
                             <td>
                                 {{$role->name}}
-                            </td>
-                        
+                            </td>                        
                             <td style="width=10px">
                                 <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('roles.show', $role->id) }}" class="btn btn-warning">View</a>
-                                {{-- <a href="{{ route('roles.permission', $role->id) }}" class="btn btn-dark"><i class="fas fa-lock"></i></a> --}}
-                            </td>
-                           
-                            
-                            
+                                <a href="{{ route('roles.permissions', $role->id) }}" class="btn btn-dark"><i class="fas fa-lock"></i></a>
+                            </td>                                                                                   
                         </tr>
                     @endforeach
                </tbody>
-
            </table>
         </div>
         <div class="card-footer">

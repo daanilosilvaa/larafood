@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+
+    
     protected $fillable = [
         'name',
         'description',
@@ -22,4 +24,26 @@ class Role extends Model
          return $this->belongsToMany(Permission::class);
      }
  
+
+    /**
+     * Permission not linked with this role
+     */
+
+    public function permissionsAvailable($filter = null)
+    {
+        
+        $permissions = Permission::whereNotIn('permissions.id', function($query) {
+            $query->select('permission_role.permission_id');
+            $query->from('permission_role');
+            $query->whereRaw("permission_role.role_id={$this->id}");
+        })
+        ->where(function ($queryFilter) use ($filter){
+            if($filter)
+                $queryFilter->where('permissions.name', 'LIKE', "%{$filter}%");
+        })
+        ->paginate();
+
+        return $permissions;
+    }
+    
 }
