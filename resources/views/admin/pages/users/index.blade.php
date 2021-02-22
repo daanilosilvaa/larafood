@@ -41,6 +41,8 @@
                             <td style="width=10px">
                                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('users.show', $user->id) }}" class="btn btn-warning">View</a>
+                                <a href="{{ route('users.roles', $user->id) }}" class="btn btn-dark" title="Cargos"><i class="fas fa-address-card"></i>
+                                </a>
                             </td>                    
                         </tr>
                     @endforeach
