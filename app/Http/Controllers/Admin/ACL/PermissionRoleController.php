@@ -3,91 +3,77 @@
 namespace App\Http\Controllers\Admin\ACL;
 
 use App\Http\Controllers\Controller;
-use App\Models\{
-    Role,
-    Permission
-};
+use App\Models\Permission;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class PermissionRoleController extends Controller
 {
-
     protected $role, $permission;
 
     public function __construct(Role $role, Permission $permission)
     {
-        $this->role  = $role;
-        $this->permission  = $permission;
+        $this->role = $role;
+        $this->permission = $permission;
 
         $this->middleware(['can:Cargos']);
-
     }
-    
-    public function permissions($idRole )
-    {
 
+    public function permissions($idRole)
+    {
         $role = $this->role->find($idRole);
 
-        if(!$role){
+        if (!$role) {
             return redirect()->back();
         }
 
-       $permissions = $role->permissions()->paginate();
+        $permissions = $role->permissions()->paginate();
 
-
-       return view('admin.pages.roles.permissions.permissions', compact('role', 'permissions'));
-
+        return view('admin.pages.roles.permissions.permissions', compact('role', 'permissions'));
     }
 
-    
-    /**
-     * Roles
-     */
 
-    public function roles($idPermission )
+    public function roles($idPermission)
     {
-
-        if(!$permission = $this->permission->find($idPermission)) {
+        if (!$permission = $this->permission->find($idPermission)) {
             return redirect()->back();
         }
 
-       $roles = $permission->roles()->paginate();
+        $roles = $permission->roles()->paginate();
 
-
-       return view('admin.pages.permissions.roles.roles', compact( 'permission', 'roles'));
-
+        return view('admin.pages.permissions.roles.roles', compact('permission', 'roles'));
     }
+
 
     public function permissionsAvailable(Request $request, $idRole)
     {
-        if(!$role = $this->role->find($idRole)){
+        if (!$role = $this->role->find($idRole)) {
             return redirect()->back();
         }
 
         $filters = $request->except('_token');
 
-        $permissions  = $role->permissionsAvailable($request->filter);
+        $permissions = $role->permissionsAvailable($request->filter);
 
         return view('admin.pages.roles.permissions.available', compact('role', 'permissions', 'filters'));
-        
     }
+
 
     public function attachPermissionsRole(Request $request, $idRole)
     {
-        if(!$role = $this->role->find($idRole)){
+        if (!$role = $this->role->find($idRole)) {
             return redirect()->back();
         }
 
-        if(!$request->permissions || count($request->permissions) == 0){
+        if (!$request->permissions || count($request->permissions) == 0) {
             return redirect()
                         ->back()
-                        ->with('info', 'Precisa escolher ao menos uma permissão');
+                        ->with('info', 'Precisa escolher pelo menos uma permissão');
         }
 
         $role->permissions()->attach($request->permissions);
 
         return redirect()->route('roles.permissions', $role->id);
-        
     }
 
     public function detachPermissionRole($idRole, $idPermission)
@@ -95,14 +81,12 @@ class PermissionRoleController extends Controller
         $role = $this->role->find($idRole);
         $permission = $this->permission->find($idPermission);
 
-        if(!$role || !$permission ){
+        if (!$role || !$permission) {
             return redirect()->back();
         }
 
         $role->permissions()->detach($permission);
 
-        return redirect()->back();
+        return redirect()->route('roles.permissions', $role->id);
     }
-
-    
 }

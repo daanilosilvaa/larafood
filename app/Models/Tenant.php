@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Tenant\Traits\TenantTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Tenant extends Model

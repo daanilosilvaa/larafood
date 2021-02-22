@@ -7,7 +7,7 @@
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('roles.index') }}" class="active">Perfils</a></li>
+    <li class="breadcrumb-item active"><a href="{{ route('roles.index') }}" class="active">Cargos</a></li>
 
 </ol>
     <h1>Permissão disponível cargo : <strong>{{$role->name}}</strong></h1>

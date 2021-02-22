@@ -287,7 +287,6 @@ return [
             'url'  => 'admin/sales',
             'icon' => 'fas fa-concierge-bell',
             'can'  => 'Vendas',
-
             
         ],
 

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin\ACL;
 
 use App\Http\Controllers\Controller;
-use App\Models\Permission;
-use App\Models\Profile;
+use App\Models\{
+    Profile,
+    Permission,
+};
 use Illuminate\Http\Request;
 
 class PermissionProfileController extends Controller
@@ -13,11 +15,10 @@ class PermissionProfileController extends Controller
     protected $profile, $permission;
 
     public function __construct(Profile $profile, Permission $permission)
-    {
-
+    {   
         $this->profile  = $profile;
         $this->permission  = $permission;
-        $this->middleware(['can:Perfils','can:Permissões']);
+        $this->middleware(['can:Perfils']);
 
     }
     
@@ -64,6 +65,7 @@ class PermissionProfileController extends Controller
 
         $filters = $request->except('_token');
 
+       
         $permissions  = $profile->permissionsAvailable($request->filter);
 
         return view('admin.pages.profiles.permissions.available', compact('profile', 'permissions', 'filters'));

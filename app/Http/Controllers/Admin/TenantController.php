@@ -27,7 +27,7 @@ class TenantController extends Controller
     public function index()
     {
        $tenants = $this->repository->latest()->paginate();
-
+    // $tenants = $this->repository->where('email', auth()->user()->email)->paginate();
        return view('admin.pages.tenants.index' , compact('tenants'));
     }
 
