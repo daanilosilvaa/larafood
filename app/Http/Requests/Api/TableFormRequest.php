@@ -24,7 +24,10 @@ class TableFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'token_company' => [
+                'required',
+                'exists:tenants,uuid'
+            ]
         ];
     }
 }

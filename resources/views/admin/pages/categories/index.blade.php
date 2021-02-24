@@ -10,9 +10,9 @@
 
 </ol>
     <h1>Categorias 
-        @can('add_cat')
+       
             <a href=" {{ route('categories.create') }} " class="btn btn-dark"><i class="fas fa-plus-square"></i></a>
-        @endcan
+      
         
     </h1>
 @stop
