@@ -11,7 +11,7 @@ Route::get('/tables/{identify}', 'Api\TableApiController@show');
 Route::get('/tables', 'Api\TableApiController@tableByTenant');
 
 
-// Route::get('/products/{identify}', 'Api\ProductApiController@show');
+Route::get('/products/{flag}', 'Api\ProductApiController@show');
 Route::get('/products', 'Api\ProductApiController@productsByTenant');
 
 
