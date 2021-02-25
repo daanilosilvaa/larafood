@@ -23,7 +23,7 @@ Route::group([
     Route::get('/tables/{identify}', 'TableApiController@show');
     Route::get('/tables', 'TableApiController@tableByTenant');
 
-    Route::get('/products/{flag}', 'ProductApiController@show');
+    Route::get('/products/{identify}', 'ProductApiController@show');
     Route::get('/products', 'ProductApiController@productsByTenant');
 
     
