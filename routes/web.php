@@ -1,5 +1,15 @@
 <?php
 
+// use App\Models\Client;
+
+// Route::get('teste', function(){
+
+//     $client = Client::first();
+
+//     $token = $client->createToken('token-teste');
+//     dd($token->plainTextToken);
+// });
+
 Route::prefix('admin')
     ->namespace('Admin')
     ->middleware('auth')
