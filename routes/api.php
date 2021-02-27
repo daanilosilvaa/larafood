@@ -6,8 +6,10 @@ Route::post('/sanctum/token', 'Api\Auth\AuthClientController@auth');
 Route::group([
     'middleware' => ['auth:sanctum']
 ], function(){
-    Route::get('auth/me', 'Api\Auth\AuthClientController@me');
-    Route::post('auth/logout', 'Api\Auth\AuthClientController@logout');
+    Route::get('/auth/me', 'Api\Auth\AuthClientController@me');
+    Route::post('/auth/logout', 'Api\Auth\AuthClientController@logout');
+    Route::post('/auth/v1/orders', 'Api\OrderApiController@store');
+
 
 });
 Route::group([
@@ -28,6 +30,9 @@ Route::group([
 
     
     Route::post('/client', 'Auth\RegisterApiController@store');
+
+    Route::post('/orders', 'OrderApiController@store');
+    Route::get('/orders/{identify}', 'OrderApiController@show');
     
     
     

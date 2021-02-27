@@ -6,12 +6,12 @@ namespace App\Models;
 use App\Tenant\Traits\TenantTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Order extends Model
 {
 
   use TenantTrait;
 
-  protected $fillable = ['identify', 'client_id', 'table_id', 'total', 'status', 'comment'];
+  protected $fillable = ['tenant_id','identify', 'client_id', 'table_id', 'total', 'status', 'comment'];
 
   public function tenant()
   {
