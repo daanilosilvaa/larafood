@@ -20,13 +20,9 @@ class EvaluationTest extends TestCase
      */
     public function testErrorCreateNewEvaluation()
     {
-        $client = factory(Client::class)->create();
+        
         $order = 'Fake_value';
-        $token = $client->createToken(Str::random(10))->plainTextToken;
-        $response = $this->postJson("/api/auth/v1/orders/{$order}/evaluations",
-        [
-            'Authorization' => "Bearer {$token}",
-        ]);
+        $response = $this->postJson("/api/auth/v1/orders/{$order}/evaluations");
 
         $response->assertStatus(401);
     }
@@ -52,11 +48,12 @@ class EvaluationTest extends TestCase
             'Authorization' => "Bearer {$token}",
         ];
 
-        $response = $this->postJson("/api/auth/v1/orders/{$order}/evaluations", 
+
+        $response = $this->postJson("/api/auth/v1/orders/{$order->identify}/evaluations", 
             $payload,
             $headers,
         );
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
     }
 }
