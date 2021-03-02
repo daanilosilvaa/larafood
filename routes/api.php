@@ -8,15 +8,13 @@ Route::post('/auth/token', 'Api\Auth\AuthClientController@auth');
 Route::group([
     'middleware' => ['auth:sanctum']
 ], function(){
-
-    $version = "v1";
     Route::get('/auth/me' , 'Api\Auth\AuthClientController@me');
     Route::post('/auth/logout', 'Api\Auth\AuthClientController@logout');
 
-    Route::post('/auth/{$version}/orders/{identifyOrder}/evaluations', 'Api\EvaluationApiController@store');
+    Route::post("/auth/v1/orders/{identifyOrder}/evaluations", 'Api\EvaluationApiController@store');
 
-    Route::get('/auth/{$version}/my-orders', 'Api\OrderApiController@myOrders');
-    Route::post('/auth/{$version}/orders', 'Api\OrderApiController@store');
+    Route::get("/auth/v1/my-orders", 'Api\OrderApiController@myOrders');
+    Route::post("/auth/v1/orders", 'Api\OrderApiController@store');
 
 
 

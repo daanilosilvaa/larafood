@@ -97,10 +97,11 @@ class AuthTest extends TestCase
     public function testGetMe()
     {       
         $client = factory(Client::class)->create();
-        $token=   $client->createToken(Str::random(10))->plainTextToken;   
+        $token = $client->createToken(Str::random(10))->plainTextToken;   
         $response = $this->getJson('/api/auth/me', [
             'Authorization' => "Bearer {$token}",
         ]);
+       
         $response->assertStatus(200)
                         ->assertExactJson([
                         "data" =>[

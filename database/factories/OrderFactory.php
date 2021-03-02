@@ -11,7 +11,7 @@ $factory->define(Order::class, function (Faker $faker) {
     return [
         'tenant_id' => factory(Tenant::class),
         'identify' => uniqid() . Str::random(10),
-        'description' => $faker->sentence,
+        'comment' => $faker->sentence,
         'total' => 80.0,
         'status' => 'open',
     ];
