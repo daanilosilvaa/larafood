@@ -282,13 +282,6 @@ return [
             'can'  => 'Mesas',
             
         ],
-        [
-            'text' => 'Vendas',
-            'url'  => 'admin/sales',
-            'icon' => 'fas fa-concierge-bell',
-            'can'  => 'Vendas',
-            
-        ],
 
         
 
