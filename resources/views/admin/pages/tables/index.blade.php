@@ -27,7 +27,7 @@
                <thead>
                    <th>Nome</th>           
                    <th>Descrição</th>           
-                   <th width="150" class="text-center">Ação</th>
+                   <th width="190" class="text-center">Ação</th>
                </thead>
                <tbody>
                     @foreach ($tables as $table)                 
@@ -40,6 +40,7 @@
                             </td>
                             
                             <td style="width=10px">
+                                <a href="{{ route('tables.qrcode', $table->identify) }}" class="btn btn-secondary" target='_blank'><i class="fas fa-qrcode"></i></a>
                                 <a href="{{ route('tables.edit', $table->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('tables.show', $table->id) }}" class="btn btn-warning">View</a>
                             </td>                    

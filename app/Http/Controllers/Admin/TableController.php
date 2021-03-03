@@ -60,14 +60,11 @@ class TableController extends Controller
      */
     public function show($id)
     {
-        $table = $this->repository->where('id', $id)->first();
-
-        if(!$table)
-            return redirect()->back();
+        if(!$table = $this->repository->find($id)){
+            return redirect()->back();   
+        }
         
-        return view('admin.pages.tables.show', [
-            'table' =>$table,
-        ]);
+        return view('admin.pages.tables.show', compact('table'));
     }
 
     /**
@@ -137,6 +134,31 @@ class TableController extends Controller
                                 })
                                 ->paginate();
         return view('admin.pages.tables.index',compact('tables', 'filters'));
+
+    }
+
+
+      /**
+     * Generate QrCode Table
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function qrcode($identify)
+    {
+        if(!$table = $this->repository->where('identify', $identify)->first()){
+            return redirect()->back();
+
+        }
+
+        $tenant = auth()->user()->tenant;
+
+        $uri = env('URI_CLIENT') . "/{$tenant->uuid}/{$table->uuid}";
+
+        
+        
+        return view('admin.pages.tables.qrcode', compact('uri'));
+
 
     }
 }
