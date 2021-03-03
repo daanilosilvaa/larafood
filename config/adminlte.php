@@ -256,12 +256,6 @@ return [
 
         ],
         [
-            'text' => 'Usuários',
-            'url'  => 'admin/users',
-            'icon' => 'fas fa-users ',
-            'can'  => 'Usuários',
-        ],
-        [
             'text' => 'Categorias',
             'url'  => 'admin/categories',
             'icon' => 'fas fa-layer-group',
@@ -281,6 +275,12 @@ return [
             'icon' => 'fa fa-th',
             'can'  => 'Mesas',
             
+        ],
+        [
+            'text' => 'Usuários',
+            'url'  => 'admin/users',
+            'icon' => 'fas fa-users ',
+            'can'  => 'Usuários',
         ],
 
         
