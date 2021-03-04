@@ -1,5 +1,8 @@
 <?php
 
+Route::get('/', function() {
+    return response()->json(['message' => 'ok']);
+});
 
 Route::post('/auth/register', 'Api\Auth\RegisterApiController@store');
 
