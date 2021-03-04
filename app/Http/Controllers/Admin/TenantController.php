@@ -26,7 +26,15 @@ class TenantController extends Controller
      */
     public function index()
     {
-       $tenants = $this->repository->latest()->paginate();
+        $user = auth()->user();
+        $tenant = auth()->user()->tenant;
+        if ($user->isAdmin()) {
+            $tenants = $this->repository->latest()->paginate();
+        }else{
+            $tenants = $this->repository->where('uuid' , $tenant->uuid)->paginate();
+        }
+
+
     // $tenants = $this->repository->where('email', auth()->user()->email)->paginate();
        return view('admin.pages.tenants.index' , compact('tenants'));
     }

@@ -18,6 +18,7 @@
     <label for="">CNPJ</label>
     <input type="text" name="cnpj" class="form-control" placeholder="CNPJ" value="{{$tenant->cnpj ?? old('cnpj')}}">
 </div>
+
 <div class="form-group">
     <label for="">Ativo?</label>
     <select name="ative" class="form-control">
@@ -25,6 +26,9 @@
         <option value="N" @if(isset($tenant)&& $tenant->ative == 'N')selected @endif>Não</option>
     </select>
 </div>
+
+
+@admin
 <hr>
 <h3>Assinatura</h3>
 <div class="form-group">
@@ -53,7 +57,7 @@
         <option value="0" @if(isset($tenant)&& $tenant->subscription_suspended == '0')selected @endif>Não</option>
     </select>
 </div>
-
+@endadmin
 
 <div class="form-group">
     <button type="submit" class="btn btn-dark">Enviar</button>

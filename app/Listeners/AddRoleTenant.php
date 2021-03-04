@@ -27,14 +27,16 @@ class AddRoleTenant
      */
     public function handle(TenantCreated $event)
     {
-       
+        $roles = session('plan');
         $user = $event->user();
        
-       if (!$role = Role::first()) 
+       if (!$role = Role::where('name', $roles->name)->first()) 
            return;
        
         $user->roles()->attach($role);
-        return 1;
+
+       
+        return $roles;
 
     }
 }

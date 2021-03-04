@@ -15,7 +15,7 @@
 @section('auth_body')
     <form action="{{ $register_url }}" method="post">
         {{ csrf_field() }}
-        <p><strong>Plano:</strong> {{ session('plan')->name  ?? '-'}}</p>
+        <p><strong>Plano:</strong> {{ session('plan')->name  ?? '-' }}</p>
 
          {{-- CNPJ field --}}
          <div class="input-group mb-3">
