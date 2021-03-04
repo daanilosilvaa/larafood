@@ -12,9 +12,6 @@ class Role extends Model
         'name',
         'description',
     ];
- 
- 
- 
     /**
      * Get Permissions
      */

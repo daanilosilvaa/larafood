@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>Lara</b>Food',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'imgs/larafood-icon.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -187,7 +187,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/admin',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -222,8 +222,13 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/8.-Menu-Configuration
     |
     */
-
+    
     'menu' => [
+        [
+            'text' => 'Home',
+            'url'  => 'admin',
+            'icon' => 'fas fa-tachometer-alt',
+        ],
         [
             'text' => 'Empresas',
             'url'  => 'admin/tenants',

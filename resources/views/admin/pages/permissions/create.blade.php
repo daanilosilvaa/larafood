@@ -15,9 +15,6 @@
                 @csrf
                 @include('admin.pages.permissions._partials.form')
             </form>
-
         </div>
-
-
     </div>
 @endsection
