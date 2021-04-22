@@ -20,11 +20,11 @@
                             <span class="duration">Por Mês</span>
                         </div>
                         <ul>
-                            @foreach ($plan->details as $detail)  
-                                    <li>{{ $detail->name }}</li>                                           
+                            @foreach ($plan->details as $detail)
+                                    <li>{{ $detail->name }}</li>
                             @endforeach
-                        </ul>  
-                        
+                        </ul>
+
                     </div>
                 </div>
                 <div class="pricingTable-signup">
@@ -34,5 +34,5 @@
         </div>
     @endforeach
 </div>
-    
+
 @endsection
