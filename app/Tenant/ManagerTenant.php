@@ -13,7 +13,7 @@ class ManagerTenant
 
     public function getTenant()
     {
-        return  auth()->check() ? auth()->user()->tenant : ''; 
+        return  auth()->check() ? auth()->user()->tenant : '';
     }
 
     public function isAdmin(): Bool

@@ -62,7 +62,7 @@ Route::prefix('admin')
 
 
     /**
-     * Plans x Profile
+     * Products x Category
      */
     Route::get('products/{id}/category/{idCategory}/detach', 'CategoryProductController@detachCategoryProduct')->name('products.category.detch');
     Route::post('products/{id}/categories', 'CategoryProductController@attachCategorysProduct')->name('products.categories.attach');
@@ -146,7 +146,7 @@ Route::prefix('admin')
     Route::post('plans/create', 'PlanController@store')->name( 'plans.store');
     Route::get('plans/{url}', 'PlanController@show')->name( 'plans.show');
     Route::delete('plans/{url}', 'PlanController@destroy')->name( 'plans.destroy');
-    
+
     /**
      * Home Dashboard
      */
