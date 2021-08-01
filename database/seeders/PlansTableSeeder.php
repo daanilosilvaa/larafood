@@ -13,11 +13,11 @@ class PlansTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
+    {
         Plan::create([
             'name' => 'Businers',
             'url' => 'businers',
-            'price' => 299.99,
+            'price' => 39.90,
             'description' => 'Plano Businers',
 
         ]);
@@ -31,7 +31,7 @@ class PlansTableSeeder extends Seeder
         Plan::create([
             'name' => 'Premium',
             'url' => 'premium',
-            'price' => 199.99,
+            'price' => 29.90,
             'description' => 'Plano Premium',
 
         ]);
