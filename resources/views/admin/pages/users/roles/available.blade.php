@@ -26,23 +26,27 @@
            <table class="table table-condensed">
                <thead>
                    <th witdt="50px">#</th>
-                   <th>Nome</th>      
+                   <th>Nome</th>
+                   <th>Descrição</th>
                </thead>
                <tbody>
                     <form action="{{ route('users.roles.attach', $user->id) }}" method="POST">
                         @csrf
-                        @foreach ($roles as $role)  
+                        @foreach ($roles as $role)
                             <tr>
                                 <td>
                                     <input type="checkbox" name="roles[]" value="{{$role->id}}">
-                                </td> 
+                                </td>
                                 <td>
                                     {{$role->name}}
-                                </td>        
+                                </td>
+                                <td>
+                                    {{$role->description}}
+                                </td>
                             </tr>
                         @endforeach
 
-                        
+
 
                         <tr>
                             <td colspan="500">
@@ -59,11 +63,11 @@
 
             @if (isset($filters))
                     {!! $roles->appends($filters)->links() !!}
-                @else 
+                @else
                     {!! $roles->links() !!}
-                    
+
                 @endif
-            
+
         </div>
     </div>
 @stop
