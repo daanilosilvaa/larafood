@@ -37,9 +37,9 @@ class UniqueTenant implements Rule
                             ->where('tenant_id', $tenantId)
                             ->first();
 
-        if($register && $register->{$this->collumn} == $this->value) 
+        if($register && $register->{$this->collumn} == $this->value)
             return true;
-            
+
         return is_null($register);
     }
 

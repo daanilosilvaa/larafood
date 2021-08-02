@@ -15,7 +15,7 @@ class TableController extends Controller
     {
         $this->repository = $table;
         $this->middleware(['can:Mesas']);
-        
+
     }
     /**
      * Display a listing of the resource.
@@ -48,7 +48,6 @@ class TableController extends Controller
     public function store(StoreUpdateTable $request)
     {
         $this->repository->create($request->except('_token'));
-
         return redirect()->route('tables.index');
     }
 
@@ -61,9 +60,9 @@ class TableController extends Controller
     public function show($id)
     {
         if(!$table = $this->repository->find($id)){
-            return redirect()->back();   
+            return redirect()->back();
         }
-        
+
         return view('admin.pages.tables.show', compact('table'));
     }
 
@@ -129,7 +128,7 @@ class TableController extends Controller
                                 ->where(function($query) use ($request){
                                     if($request->filter) {
                                         $query->orWhere('description', 'LIKE', "%{$request->filter}%");
-                                        $query->orWhere('identify', $request->filter); 
+                                        $query->orWhere('identify', $request->filter);
                                     }
                                 })
                                 ->paginate();
@@ -155,8 +154,8 @@ class TableController extends Controller
 
         $uri = env('URI_CLIENT') . "/{$tenant->uuid}/{$table->uuid}";
 
-        
-        
+
+
         return view('admin.pages.tables.qrcode', compact('uri'));
 
 

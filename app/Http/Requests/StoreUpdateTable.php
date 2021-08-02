@@ -28,18 +28,18 @@ class StoreUpdateTable extends FormRequest
 
         $rules = [
             'identify' => [
-                'required', 
+                'required',
                 'string',
-                'min:3', 
+                'min:3',
                 'max:255',
                 // "unique:tables,identify,{$id},id"
-                new UniqueTenant('products', $id),
+                new UniqueTenant('tables', $id),
             ],
             'description' => 'required|min:3|max:1000',
-           
+
         ];
 
-    
+
 
 
         return $rules;

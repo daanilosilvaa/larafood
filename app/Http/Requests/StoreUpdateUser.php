@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Tenant\Rules\UniqueTenant;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreUpdateUser extends FormRequest
@@ -27,11 +28,16 @@ class StoreUpdateUser extends FormRequest
 
         $rules = [
             'name' => ['required', 'string','min:3', 'max:255'],
-            'email' => "required|min:3|max:255|unique:users,email,{$id},id",
+            'email' => [
+                'required',
+                'min:3',
+                'max:255',
+                 new UniqueTenant('users','email', $id)],
             'password' => ['required', 'string', 'min:6','max:16'],
+
         ];
 
-    
+
 
         if($this->method() == 'PUT'){
             $rules['password'] = ['nullable', 'string', 'min:6','max:16'];
