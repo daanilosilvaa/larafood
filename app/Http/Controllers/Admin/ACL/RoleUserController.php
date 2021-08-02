@@ -55,6 +55,9 @@ class RoleUserController extends Controller
 
         $roles = $user->rolesAvailable($request->filter);
 
+        unset($roles[0]);
+        unset($roles[1]);
+
         return view('admin.pages.users.roles.available', compact('user', 'roles', 'filters'));
     }
 
