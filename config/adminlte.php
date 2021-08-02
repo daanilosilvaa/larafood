@@ -287,6 +287,11 @@ return [
             'icon' => 'fas fa-users ',
             'can'  => 'Usuários',
         ],
+        [
+            'text' => 'Pedidos',
+            'url'  => 'admin/orders',
+            'icon' => 'fas fa-utensils ',
+        ],
 
 
 

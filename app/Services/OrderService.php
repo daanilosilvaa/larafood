@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 namespace App\Services;
@@ -29,7 +29,7 @@ class OrderService
       $this->tableRepository = $tableRepository;
       // $this->clientRepository = $clientRepository;
       $this->productRepository = $productRepository;
-        
+
     }
     public function ordersByClient()
     {
@@ -98,7 +98,7 @@ class OrderService
 
     private function getProductsByOrder(array $productsOrder): array
     {
-   
+
       $products = [];
       foreach($productsOrder as $productOrder)
       {
@@ -119,7 +119,7 @@ class OrderService
     private function getTotalOrder(array $products): float
     {
 
-      $total = 0; 
+      $total = 0;
       foreach($products as $product)
       {
         $total += ($product['price'] * $product['qty']);
@@ -146,9 +146,19 @@ class OrderService
     private function getClientIdByOrder()
     {
       return auth()->check() ? auth()->user()->id : '';
-     
-      
+
+
     }
 
-    
+    public function getOrderByTenantId(int $idTenant, string $status, string $date)
+    {
+        return $this->orderRepository->getOrderByTenantId($idTenant, $status);
+    }
+
+    public function updateStatusOrder(string $identify, string $status)
+    {
+
+    }
+
+
 }

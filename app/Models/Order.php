@@ -13,16 +13,29 @@ class Order extends Model
 
   protected $fillable = ['tenant_id','identify', 'client_id', 'table_id', 'total', 'status', 'comment'];
 
+  /***
+   * options Status
+   */
+
+   public $statusOptions = [
+       'open' => 'Aberto',
+       'done' => 'Completo',
+       'rejected' => 'rejeitado',
+       'working' => 'Andamento',
+       'canceled' => 'Cancelado',
+       'delivering' => 'Em transito',
+   ];
+
   public function tenant()
   {
       return $this->belongsTo(Tenant::class);
   }
-    
+
   public function client()
   {
       return $this->belongsTo(Client::class);
   }
-  
+
   public function table()
   {
       return $this->belongsTo(Table::class);
