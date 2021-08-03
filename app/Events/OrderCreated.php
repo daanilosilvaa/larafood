@@ -37,6 +37,9 @@ class OrderCreated
         return new PrivateChannel('order-created.'.$this->order->tenant_id);
     }
 
+    /**
+     * Get the data to broadcast.
+     */
     public function broadcastWith()
     {
         return ['order' =>(new OrderResource($this->order))->resolve()];
