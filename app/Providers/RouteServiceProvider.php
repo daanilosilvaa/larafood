@@ -77,6 +77,13 @@ class RouteServiceProvider extends ServiceProvider
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
     }
+      /**
+     * Define the "auth api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
 
     protected function mapAuthApiRoutes()
     {
