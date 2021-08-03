@@ -291,6 +291,7 @@ return [
             'text' => 'Pedidos',
             'url'  => 'admin/orders',
             'icon' => 'fas fa-utensils ',
+            // 'target'=> "_blank"
         ],
 
 
