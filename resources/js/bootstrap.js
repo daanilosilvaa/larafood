@@ -25,7 +25,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 import Echo from "larave-echo"
 
-window.io = require('socket.io-clinet');
+window.io = require('socket.io-client');
 
 window.Echo = new Echo({
     broadcaster : 'socket.io',
