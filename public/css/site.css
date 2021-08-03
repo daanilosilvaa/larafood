@@ -5,7 +5,7 @@ a:hover {
     font-family: 'Lato', sans-serif;
     text-align: center;
     font-size: 4em;
-    color: #B63132;
+    color: #ff6c00;
     margin: 26px 0;
 }
 .customer-area {
@@ -26,7 +26,7 @@ a:hover {
     border-radius: 0 70px 0 0;
 }
 .pricingTable .title{
-    color: #B63132;
+    color: #ff6c00;
     font-size: 27px;
     font-weight: 800;
     text-transform: uppercase;
@@ -34,12 +34,12 @@ a:hover {
     margin: 0 0 15px;
 }
 .pricingTable .inner-content{
-    background: linear-gradient(to bottom, #de2426, #773b3b);
+    background: linear-gradient(to bottom, #2ea7bd, #99bbc1);
     padding: 30px 0 15px;
     border-radius: 0 70px 0 0;
 }
 .pricingTable .price-value{
-    color: #B63132;
+    color: #ff6c00;
     background-color: transparent;
     font-size: 45px;
     line-height: 40px;
@@ -110,7 +110,7 @@ a:hover {
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 .pricingTable .pricingTable-signup{
-    background: linear-gradient(to bottom, #de2426, #773b3b);
+    background: linear-gradient(to bottom, #2ea7bd, #99bbc1);
     padding: 10px 0;
     border-radius:0 0 0 50px;
     border: 9px solid #fff;
@@ -127,8 +127,8 @@ a:hover {
     transition: all 0.3s;
 }
 .pricingTable .pricingTable-signup a:hover{
-    text-shadow: 0 0 5px #000;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    text-shadow: 0 0 5px #ff6c00;
+    box-shadow: 0 0 15px #ff6c00;
 }
 .pricingTable.pink .inner-content,
 .pricingTable.pink .pricingTable-signup{

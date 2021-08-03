@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="text-right">
-    <a href="{{ route('login') }}" style="color: #b63132; font-size: 20px;" title="Login">Login <i class="fas fa-sign-in-alt"></i></a>
+    <a href="{{ route('login') }}" style="color: #e8a34b; font-size: 20px;" title="Login">Login <i class="fas fa-sign-in-alt"></i></a>
 </div>
 <div class="text-center">
     <h1 class="title-plan">Escolha o plano</h1>

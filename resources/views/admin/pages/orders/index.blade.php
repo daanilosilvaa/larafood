@@ -5,7 +5,7 @@
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb"><a href="{{ route('admin.index') }}">Dasboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('order.index') }}">Pedidos</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('orders.index') }}">Pedidos</a></li>
     </ol>
 
     <h1>Pedidos</h1>

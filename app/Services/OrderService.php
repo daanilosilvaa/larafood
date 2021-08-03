@@ -152,7 +152,7 @@ class OrderService
 
     public function getOrderByTenantId(int $idTenant, string $status, string $date)
     {
-        return $this->orderRepository->getOrderByTenantId($idTenant, $status);
+        return $this->orderRepository->getOrdersByTenantId($idTenant, $status);
     }
 
     public function updateStatusOrder(string $identify, string $status)

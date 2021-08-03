@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'LaraFood',
+    'title' => 'Iporã food',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Lara</b>Food',
-    'logo_img' => 'imgs/larafood-icon.png',
+    'logo' => '<b>Iporã</b> Food',
+    'logo_img' => 'imgs/deliverysemnome.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'IporaFood',
 
     /*
     |--------------------------------------------------------------------------
