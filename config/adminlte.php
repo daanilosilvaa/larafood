@@ -242,6 +242,12 @@ return [
             'can'  => 'Planos',
         ],
         [
+            'text' => 'Estados',
+            'url'  => 'admin/states',
+            'icon' => 'fas fa-flag-usa',
+
+        ],
+        [
             'text' => 'Perfil',
             'url'  => 'admin/profiles',
             'icon' => 'fas fa-address-book',
