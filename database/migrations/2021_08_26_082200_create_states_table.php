@@ -18,7 +18,7 @@ class CreateStatesTable extends Migration
             $table->string('name');
             $table->string('initials');
             $table->string('url');
-            $table->boolean('active')->default(true);
+            $table->boolean('active')->default(false);
             $table->timestamps();
         });
     }
