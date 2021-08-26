@@ -16,9 +16,9 @@
 @section('content')
     <div class="card">
 
-        <div class="card-body">    
+        <div class="card-body">
             <ul>
-                    <img src="{{ url("storage/$tenant->logo") }}" alt="{{$tenant->name}}" style="max-height: 50px">              
+                    <img src="{{ url("storage/$tenant->logo") }}" alt="{{$tenant->name}}" style="max-height: 50px">
                 <li>
                     <strong>Plano: </strong>{{ $tenant->plan->name }}
                 </li>
@@ -35,28 +35,28 @@
                     <strong>CNPJ: </strong>{{ $tenant->cnpj }}
                 </li>
                 <li>
-                    <strong>Ativo: </strong>{{ $tenant->ative == 'Y' ? 'SIM' : 'NÃO' }}
-                </li> 
-                
+                    <strong>Ativo: </strong>{{ $tenant->active == 'Y' ? 'SIM' : 'NÃO' }}
+                </li>
+
             </ul>
             <hr>
             <h3>Assinatura</h3>
             <ul>
                 <li>
                     <strong>Data Assinatura: </strong>{{ $tenant->subscription }}
-                </li>  
+                </li>
                 <li>
                     <strong>Data Expira: </strong> {{ $tenant->expires_at }}
-                </li>   
+                </li>
                 <li>
                     <strong>Identificador: </strong> {{ $tenant->subscription_id }}
-                </li>        
+                </li>
                 <li>
                     <strong>Ativo? </strong> {{ $tenant->subscription_active ? 'SIM' : 'NÃO' }}
-                </li>  
+                </li>
                 <li>
                     <strong>Cancelou? </strong> {{ $tenant->subscription_suspended ? 'SIM' : 'NÃO' }}
-                </li> 
+                </li>
             </ul>
         </div>
     </div>

@@ -26,11 +26,11 @@ class StoreUpdateTenant extends FormRequest
         $id = $this->segment(3);
 
         $rules = [
-            'name' => ['required', 'min:3', 'max:255', "unique:tenants,name,{$id},id"], 
+            'name' => ['required', 'min:3', 'max:255', "unique:tenants,name,{$id},id"],
             'email' => "required|min:3|max:255|unique:tenants,email,{$id},id",
             'cnpj' => ['required', 'digits:14', "unique:tenants,cnpj,{$id},id"],
             'logo' => ['nullable', 'image'],
-            'ative' => ['required', 'in:Y,N'],
+            'active' => ['required', 'in:Y,N'],
 
             // subscription
             'subscription' => ['nullable', 'date'],
@@ -38,7 +38,7 @@ class StoreUpdateTenant extends FormRequest
             'subscription_id' => ['nullable', 'max:255'],
             'subscription_active' => ['nullable', 'boolean'],
             'subscription_suspended' => ['nullable', 'boolean'],
-         
+
         ];
 
         if($this->method() == 'PUT'){

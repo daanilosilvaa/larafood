@@ -21,9 +21,9 @@
 
 <div class="form-group">
     <label for="">Ativo?</label>
-    <select name="ative" class="form-control">
-        <option value="Y" @if(isset($tenant)&& $tenant->ative == 'Y')selected @endif>SIM</option>
-        <option value="N" @if(isset($tenant)&& $tenant->ative == 'N')selected @endif>Não</option>
+    <select name="active" class="form-control">
+        <option value="Y" @if(isset($tenant)&& $tenant->active == 'Y')selected @endif>SIM</option>
+        <option value="N" @if(isset($tenant)&& $tenant->active == 'N')selected @endif>Não</option>
     </select>
 </div>
 
