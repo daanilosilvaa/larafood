@@ -47,6 +47,27 @@ Route::prefix('admin')
         Route::any('roles/search', 'ACL\RoleController@search')->name('roles.search');
         Route::resource('roles', 'ACL\RoleController');
 
+
+        /**
+         * Route State X City
+         */
+        Route::delete('state/{urlState}/cities/{idCity}', 'CityStateController@destroy' )->name('cities.state.destroy');
+        Route::get('state/{urlState}/cities/create', 'CityStateController@create' )->name('cities.state.create');
+        Route::get('state/{urlState}/cities/{idCity}', 'CityStateController@show' )->name('cities.state.show');
+        Route::put('state/{urlState}/cities/{idCity}', 'CityStateController@update' )->name('cities.state.update');
+        Route::get('state/{urlState}/cities/{idCity}/edit', 'CityStateController@edit' )->name('cities.state.edit');
+        Route::post('state/{urlState}/cities', 'CityStateController@store' )->name('cities.state.store');
+        Route::get('state/{urlState}/cities', 'CityStateController@index' )->name('cities.state.index');
+
+
+
+
+        /**
+         * Routes States
+         */
+        Route::any('states/search', 'StateController@search')->name('states.search');
+        Route::resource('states', 'StateController');
+
         /**
          * Routes Company
          */
