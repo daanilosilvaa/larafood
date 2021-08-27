@@ -52,7 +52,7 @@
                     <strong>Identificador: </strong> {{ $tenant->subscription_id }}
                 </li>
                 <li>
-                    <strong>Ativo? </strong> {{ $tenant->subscription_active ? 'SIM' : 'NÃO' }}
+                    <strong>Assinatura Ativa? </strong> {{ $tenant->subscription_active ? 'SIM' : 'NÃO' }}
                 </li>
                 <li>
                     <strong>Cancelou? </strong> {{ $tenant->subscription_suspended ? 'SIM' : 'NÃO' }}
