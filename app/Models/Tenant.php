@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tenant extends Model
 {
-    
+
    protected $fillable = [
        'cnpj',
        'name',
@@ -18,7 +18,7 @@ class Tenant extends Model
        'expires_at',
        'subscription_id',
        'subscription_active',
-       'subscription_suspended' 
+       'subscription_suspended'
    ];
 
    public function users()
@@ -29,5 +29,10 @@ class Tenant extends Model
    public function plan()
    {
        return $this->belongsTo(Plan::class);
+   }
+
+   public function addresses()
+   {
+       return $this->hasMany(AddressFull::class);
    }
 }

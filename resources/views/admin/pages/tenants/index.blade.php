@@ -30,7 +30,7 @@
                    <th width="250" class="text-center">Ação</th>
                </thead>
                <tbody>
-                    @foreach ($tenants as $tenant)                 
+                    @foreach ($tenants as $tenant)
                         <tr>
                             <td>
                                <img src="{{ url("storage/$tenant->logo") }}" alt="{{$tenant->name}}" style="max-height: 90px">
@@ -38,13 +38,13 @@
                             <td>
                                 {{$tenant->name}}
                             </td>
-                        
-                          
+
+
                             <td style="width=10px">
                                 <a href="{{ route('tenants.edit', $tenant->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('tenants.show', $tenant->id) }}" class="btn btn-warning">View</a>
-                                {{-- <a href="{{ route('tenants.categories', $tenant->id) }}" class="btn btn-dark" title="Categorias"><i class="fas fa-layer-group"></i></a> --}}
-                            </td>                    
+                                <a href="{{ route('addresses.tenant.index', $tenant->url) }}" class="btn btn-dark" title="Endereço"><i class="fas fa-map-marker-alt"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                </tbody>
@@ -55,11 +55,11 @@
 
             @if (isset($filters))
                     {!! $tenants->appends($filters)->links() !!}
-                @else 
+                @else
                     {!! $tenants->links() !!}
-                    
+
                 @endif
-            
+
         </div>
     </div>
 @stop

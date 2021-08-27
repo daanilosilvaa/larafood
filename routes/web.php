@@ -69,6 +69,17 @@ Route::prefix('admin')
         Route::resource('states', 'StateController');
 
         /**
+         * Route Tenant X address
+         */
+        Route::delete('tenant/{urlTenant}/address/{idAddress}', 'AddressTenantController@destroy' )->name('addresses.tenant.destroy');
+        Route::get('tenant/{urlTenant}/address/create', 'AddressTenantController@create' )->name('addresses.tenant.create');
+        Route::get('tenant/{urlTenant}/address/{idAddress}', 'AddressTenantController@show' )->name('addresses.tenant.show');
+        Route::put('tenant/{urlTenant}/address/{idAddress}', 'AddressTenantController@update' )->name('addresses.tenant.update');
+        Route::get('tenant/{urlTenant}/address/{idAddress}/edit', 'AddressTenantController@edit' )->name('addresses.tenant.edit');
+        Route::post('tenant/{urlTenant}/address', 'AddressTenantController@store' )->name('addresses.tenant.store');
+        Route::get('tenant/{urlTenant}/address', 'AddressTenantController@index' )->name('addresses.tenant.index');
+
+        /**
          * Routes Company
          */
         Route::any('tenants/search', 'TenantController@search')->name('tenants.search');
