@@ -9,7 +9,6 @@
         @endforeach
     </select>
 </div>
-
 <div class="form-group">
     <label for="">* Logradouro/Rua</label>
     <input type="text" name="address" class="form-control" placeholder="Logradouro/Rua:" value="{{$product->title ?? old('title')}}" autofocus>

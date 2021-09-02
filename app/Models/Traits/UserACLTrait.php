@@ -6,15 +6,12 @@ namespace App\Models\Traits;
 use App\Models\Tenant;
 
 /**
- * 
+ *
  */
 trait UserACLTrait
 {
     public function permissions(): array
     {
-
-       
-
         $permissionsPlan = $this->permissionsPlan();
         $permissionsRole = $this->permissionsRole();
         $permissions = [];
@@ -24,12 +21,12 @@ trait UserACLTrait
            {
                array_push($permissions,$permission);
            }
-           
+
         }
-        
+
         return $permissions;
-        
-        
+
+
     }
 
     public function permissionsPlan(): array
@@ -45,8 +42,8 @@ trait UserACLTrait
                array_push($permissions, $permission->name);
            }
         }
-       
-        
+
+
         return $permissions;
     }
 
@@ -54,7 +51,7 @@ trait UserACLTrait
     {
         $roles = $this->roles()->with('permissions')->get();
 
-      
+
 
         $permissions = [];
         foreach ($roles as $role) {
@@ -62,7 +59,7 @@ trait UserACLTrait
                 array_push($permissions, $permission->name);
             }
         }
-        
+
         return $permissions;
     }
 

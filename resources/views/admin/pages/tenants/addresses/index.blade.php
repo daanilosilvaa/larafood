@@ -51,9 +51,9 @@
 
 
                             <td style="width=10px">
-                                <a href="{{ route('addresses.tenant.edit', $address->id) }}" class="btn btn-info">Edit</a>
+                                {{-- <a href="{{ route('addresses.tenant.edit', $address->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('addresses.tenant.show', $address->id) }}" class="btn btn-warning">View</a>
-                                <a href="{{ route('addresses.tenant.categories', $address->id) }}" class="btn btn-dark" title="Categorias"><i class="fas fa-layer-group"></i></a>
+                                <a href="{{ route('addresses.tenant.categories', $address->id) }}" class="btn btn-dark" title="Categorias"><i class="fas fa-layer-group"></i></a> --}}
                             </td>
                         </tr>
                     @endforeach

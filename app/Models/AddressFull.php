@@ -9,12 +9,17 @@ class AddressFull extends Model
 {
     use HasFactory;
     protected $table = 'addresses';
-    protected $fillable = ['client_id','tenant_id', 'district', 'address', 'number', 'complemnet'];
+    protected $fillable = ['city_id','identify', 'district', 'address', 'number', 'complemnet'];
 
 
     public function tenant()
     {
         return $this->belongsTo(Tenant::class);
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
     }
 
 }

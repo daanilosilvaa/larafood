@@ -43,7 +43,7 @@
                             <td style="width=10px">
                                 <a href="{{ route('tenants.edit', $tenant->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('tenants.show', $tenant->id) }}" class="btn btn-warning">View</a>
-                                <a href="{{ route('addresses.tenant.index', $tenant->url) }}" class="btn btn-dark" title="Endereço"><i class="fas fa-map-marker-alt"></i></a>
+      {{-- implementação futura <a href="{{ route('addresses.tenant.index', $tenant->url) }}" class="btn btn-dark" title="Endereço"><i class="fas fa-map-marker-alt"></i></a> --}}
                             </td>
                         </tr>
                     @endforeach

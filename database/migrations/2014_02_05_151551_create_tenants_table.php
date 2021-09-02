@@ -17,11 +17,15 @@ class CreateTenantsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('plan_id');
             $table->uuid('uuid');
+            $table->boolean('open')->default(false);
             $table->string('cnpj')->unique();
             $table->string('name')->unique();
             $table->string('url')->unique();
             $table->string('email')->unique();
             $table->string('logo')->nullable();
+            $table->time('timeOpen')->nullable();
+            $table->time('timeClose')->nullable();
+
 
             // Status tenant (se inativar 'N' ele perde o acesso ao sistema)
             $table->enum('active',['Y', 'N'])->default('Y');

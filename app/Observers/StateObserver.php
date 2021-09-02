@@ -17,6 +17,7 @@ class StateObserver
     {
         $state->url = Str::kebab($state->name);
         $state->initials = Str::upper($state->initials);
+        $state->uuid = Str::uuid();
     }
 
     /**

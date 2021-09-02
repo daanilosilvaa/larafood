@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AddressFull;
+use App\Models\CityState;
 use App\Models\State;
 use App\Models\Tenant;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class AddressTenantController extends Controller
             return redirect()->back();
         }
 
-        $addresses = $tenant->addresses()->paginate();
+        $addresses = AddressFull::where('identify', $tenant->uuid)->paginate();
 
         return view('admin.pages.tenants.addresses.index', compact(['tenant','addresses']));
 
@@ -43,6 +44,7 @@ class AddressTenantController extends Controller
      */
     public function create($urlTenant)
     {
+
         $states = State::where('active', 1)->with('cities')->get();
 
         if (!$tenant = $this->tenant->where('url', $urlTenant)->first()) {
@@ -60,7 +62,14 @@ class AddressTenantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $tenant = Tenant::where('id',auth()->user()->tenant_id)->first();
+        $data = $request->all();
+        $data['identify'] =  $tenant->uuid;
+        $this->repository->create($data);
+
+
+        return redirect()->route('tenant.index');
     }
 
     /**

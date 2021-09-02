@@ -17,6 +17,7 @@ class CreateCityStatesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('state_id');
             $table->string('name');
+            $table->uuis('uuid');
             $table->boolean('active')->default(false);
 
             $table->foreign('state_id')

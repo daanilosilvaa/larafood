@@ -30,4 +30,9 @@ class Client extends  Authenticatable
       return $this->hasMany(Evaluation::class);
   }
 
+  public function addresses()
+  {
+      return $this->hasMany(AddressFull::class);
+  }
+
 }

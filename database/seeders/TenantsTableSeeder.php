@@ -6,6 +6,8 @@ use App\Models\{
     Plan,
     Tenant
 };
+use Carbon\Carbon;
+use Facade\FlareClient\Time\Time;
 use Illuminate\Database\Seeder;
 
 class TenantsTableSeeder extends Seeder
@@ -25,7 +27,6 @@ class TenantsTableSeeder extends Seeder
             'name' => 'Danilo Silva da Costa',
             'url' => 'danilosilvadacosta',
             'email' => 'daanilo-silvaa@hotmail.com',
-
         ]);
     }
 }
