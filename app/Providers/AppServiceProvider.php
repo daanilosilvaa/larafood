@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\{
     Category,
+    CityState,
     Client,
     Plan,
     Product,
@@ -13,6 +14,7 @@ use App\Models\{
 };
 use App\Observers\{
     CategoryObserver,
+    CityStateObserver,
     ClientObserver,
     PlanObserver,
     ProductObserver,
@@ -52,6 +54,8 @@ class AppServiceProvider extends ServiceProvider
         Client::observe(ClientObserver::class);
         Table::observe(TableObserver::class);
         State::observe(StateObserver::class);
+        CityState::observe(CityStateObserver::class);
+
 
 
 

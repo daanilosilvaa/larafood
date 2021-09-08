@@ -23,7 +23,7 @@
                 </li>
 
                 <li>
-                    <strong>Status:</strong> {{ $city->status === 'Y' ? 'Inativo' : 'Ativo' }}
+                    <strong>Status:</strong> {{$city->active === 1 ? 'Ativo' : 'Inativo'}}
                 </li>
             </ul>
 

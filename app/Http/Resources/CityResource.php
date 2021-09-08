@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ClientResource extends JsonResource
+class CityResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,9 @@ class ClientResource extends JsonResource
     {
         return [
             'name' => $this->name,
-            'email' => $this->email,
-            'city' => $this->city,
-            'state' => $this->state
+            'uuid'=> $this->uuid,
+            'active'=> $this->active == 1 ? 'Active' : 'Inactive',
+
         ];
     }
 }

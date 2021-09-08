@@ -41,6 +41,10 @@ Route::group([
     Route::post('/orders', 'OrderApiController@store');
     Route::get('/orders/{identify}', 'OrderApiController@show');
 
+    Route::get('/states', 'StateApiController@index');
+    Route::get('/states/{uuidState}', 'StateApiController@cities');
+
+
 
 
 });

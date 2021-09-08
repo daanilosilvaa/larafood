@@ -11,7 +11,7 @@ class CityState extends Model
 
     protected $table = 'cities_state';
 
-    protected $fillable = ['name', 'active', 'state_id'];
+    protected $fillable = ['name','uuid', 'active', 'state_id'];
 
 
     public function state()

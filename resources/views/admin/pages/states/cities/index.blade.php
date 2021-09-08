@@ -39,7 +39,7 @@
                                 {{$city->name}}
                             </td>
                             <td>
-                                {{$city->ative === 'Y' ? 'Inativo' : 'Ativo'}}
+                                {{$city->active === 1 ? 'Ativo' : 'Inativo'}}
                             </td>
 
 

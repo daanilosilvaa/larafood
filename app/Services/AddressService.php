@@ -2,26 +2,28 @@
 
 namespace App\Services;
 
+use App\Http\Requests\Api\StoreUpdateAddress;
+use App\Http\Resources\AddressResource;
+use App\Repositories\Contracts\AddressRepositoryInterface;
+
 class AddressService
 {
-    protected $evaluationService;
-    public function __construct(EvaluationService $addressService)
+    protected $addressService;
+    public function __construct(AddressRepositoryInterface $addressService)
     {
         $this->addressService = $addressService;
 
     }
 
-    public function store(StoreEvaluationOrder $request)
+    public function store(StoreUpdateAddress $request, array $data)
     {
-        $data = $request->only('stars', 'comment');
+        $data = $request->except(['state', '_token']);
 
-        $address =  $this->addressService
-                            ->createNewEvaluation($request->identifyOrder, $data);
+        $address =  $this->addressService->newAddressByIdentify($request->identify, $data);
 
         return (new AddressResource($address))
                     ->response()
                     ->setStatusCode(201);
-
 
     }
 

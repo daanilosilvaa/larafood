@@ -244,7 +244,7 @@ return [
         [
             'text' => 'Estados',
             'url'  => 'admin/states',
-            'icon' => 'fas fa-flag-usa',
+            'icon' => 'fas fa-globe-americas',
             'can' => 'Estados'
 
         ],

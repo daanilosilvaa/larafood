@@ -10,6 +10,7 @@ use App\Models\{
     Product,
     Profile,
     Role,
+    State,
     Table,
     Tenant,
     User
@@ -31,6 +32,7 @@ class DashboardController extends Controller
     $totalRoles = Role::count();
     $totalProfils = Profile::count();
     $totalPermissions = Permission::count();
+    $totalState = State::count();
 
       return view('admin.pages.home.home', compact(
         'totalUsers',
@@ -42,6 +44,7 @@ class DashboardController extends Controller
         'totalRoles',
         'totalProfils',
         'totalPermissions',
+        'totalState',
       ));
   }
 }

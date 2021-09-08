@@ -18,16 +18,5 @@ class CityStateObserver
          $cityState->uuid = Str::uuid();
     }
 
-    /**
-     * Handle the CityState "updated" event.
-     *
-     * @param  \App\Models\CityState  $cityState
-     * @return void
-     */
-    public function updating(CityState $cityState)
-    {
-         $cityState->uuid = Str::uuid();
-    }
-
 
 }

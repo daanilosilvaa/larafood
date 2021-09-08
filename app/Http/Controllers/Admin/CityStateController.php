@@ -98,9 +98,19 @@ class CityStateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($urlState, $idCity)
     {
-        //
+        $state = $this->state->where('url', $urlState)->first();
+        $city = $this->repository->find($idCity);
+
+        if(!$state || !$city){
+            return redirect()->back();
+        }
+
+        return View('admin.pages.states.cities.edit', [
+            'state' => $state,
+            'city' => $city,
+        ]);
     }
 
     /**
@@ -110,9 +120,19 @@ class CityStateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $urlState, $idCity)
     {
-        //
+        $state = $this->state->where('url', $urlState)->first();
+        $city = $this->repository->find($idCity);
+
+        if(!$state || !$city){
+            return redirect()->back();
+        }
+
+        $city->update($request->all());
+        return redirect()->route('cities.state.index',
+        $state->url
+    );
     }
 
     /**

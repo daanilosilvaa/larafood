@@ -3,7 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\AddressFull;
+use App\Models\CityState;
 use App\Repositories\Contracts\AddressRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 
 class AddressRespository implements AddressRepositoryInterface
 {
@@ -13,28 +15,28 @@ class AddressRespository implements AddressRepositoryInterface
     public function __construct(AddressFull $address)
     {
         $this->entity = $address;
-    }
-
-    public function newAddressOrder(int $idOrder)
-    {
-        $data = [
-            'order_id'  => $idOrder,
-
-            'comment'     => isset($address['comment']) ? $address['comment'] : '',
-        ];
-        return  $this->entity->create($data);
-    }
-    public function getAddressByOrder(int $idOrder)
-    {
 
     }
-    public function getAddressByClient(int $idClient){
+
+
+
+     // identify pode ser uuidTenant, uuidClient ou identifyOrder
+     public function newAddressByIdentify(array $data)
+     {
+        $cities = CityState::where('active', 1)->get();
+
+        for ($i=0; $i < count($cities) ; $i++) {
+           if ($data['city_id'] == $cities[$i]) {
+            $this->entity->create($data);
+              return;
+           }
+        }
 
     }
-    public function getAddressById(int $id){
+     public function getAddressByIdentify(int $identify)
+     {
 
-    }
-    public function getAddressByClientIdByOrderId(int $idOrder, int $idClient){
+        return DB::table('addresses')->where('identify', $identify)->get();
 
-    }
+     }
 }

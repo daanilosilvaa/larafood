@@ -14,10 +14,10 @@ class CreateCityStatesTable extends Migration
     public function up()
     {
         Schema::create('cities_state', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('state_id');
             $table->string('name');
-            $table->uuis('uuid');
+            $table->uuid('uuid');
             $table->boolean('active')->default(false);
 
             $table->foreign('state_id')

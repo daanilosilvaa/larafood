@@ -15,6 +15,7 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('city_id');
             $table->uuid('uuid');
             $table->string('name');
             $table->string('email')->unique();
@@ -22,6 +23,11 @@ class CreateClientsTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('city_id')
+                ->references('id')
+                ->on('cities_state')
+                ->onDelete('cascade');
         });
     }
 

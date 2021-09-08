@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Editar a Permissão {$state->name}")
+@section('title', "Editar a cidade de {$city->name} do estado: {$state->name}")
 
 @section('content_header')
-    <h1>Editar a Permissão {{ $state->name }}</h1>
+    <h1>Editar a cidade de <strong>{{$city->name}}</strong> do estado: <strong>{{ $state->name }}</strong></h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
 
         <div class="card-body">
 
-            <form action="{{ route('cities.state.update', $state->id) }}" class="form" method="POST">
+            <form action="{{ route('cities.state.update', [$state->url, $city->id]) }}" class="form" method="POST">
                 @method('PUT')
 
                @include('admin.pages.states.cities._partials.form')
