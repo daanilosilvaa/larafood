@@ -28,12 +28,12 @@
                         <li>Total: R$ {{ total }}</li>
                         <li>Status: {{ order.status_label }}</li>
                         <li>Data: {{ order.date_br   }}</li>
+                        <li>Logradouro:Tiradentes</li>
+                        <li>Cidade:Iporã-PR}</li>
                         <li>
                             Cliente:
                             <ul>
                                 <li>Nome: {{ order.client.name }}</li>
-                                <!-- <li>image: {{ order.image }}</li> -->
-                                <!-- <li>uuid: {{ order.uuid }}</li> -->
                                 <li>Contato: {{ order.client.contact }}</li>
                             </ul>
                         </li>

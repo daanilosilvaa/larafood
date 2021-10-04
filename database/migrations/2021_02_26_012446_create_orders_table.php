@@ -20,7 +20,13 @@ class CreateOrdersTable extends Migration
             $table->integer('client_id')->nullable();
             $table->integer('table_id')->nullable();
             $table->double('total', 10,2);
-            $table->enum('status', ['open', 'done','rejected', 'working', 'canceled', 'delivering']);
+            $table->enum('status', ['open', 'done', 'rejected', 'working', 'canceled', 'delivering']);
+            $table->enum('option',['W','D'])->default('W');
+            $table->integer('city_id')->nullable();
+            $table->string('district')->nullable();
+            $table->string('address')->nullable();
+            $table->string('number')->nullable();
+            $table->string('complement')->nullable();
             $table->text('comment')->nullable();
 
             $table->timestamps();

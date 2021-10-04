@@ -7,6 +7,7 @@ use App\Repositories\Contracts\{
   ClientRepositoryInterface,
     OrderRepositoryInterface,
     ProductRepositoryInterface,
+    StateRepositoryInterface,
     TableRepositoryInterface,
     TenantRepositoryInterface
 };
@@ -14,14 +15,19 @@ use App\Repositories\Contracts\{
 
 class OrderService
 {
-    protected $orderRepository, $tenantRepository, $tableRepository, $productRepository; //$clientRepository;
+    protected $orderRepository,
+            $tenantRepository,
+            $tableRepository,
+            $productRepository,
+            $stateRepository; //$clientRepository;
 
     public function __construct(
         OrderRepositoryInterface $orderRepository,
         TenantRepositoryInterface $tenantRepository,
         TableRepositoryInterface $tableRepository,
         // ClientRepositoryInterface $clientRepository,
-        ProductRepositoryInterface $productRepository
+        ProductRepositoryInterface $productRepository,
+        StateRepositoryInterface $stateRepository,
 
     ) {
       $this->orderRepository = $orderRepository;
@@ -29,6 +35,7 @@ class OrderService
       $this->tableRepository = $tableRepository;
       // $this->clientRepository = $clientRepository;
       $this->productRepository = $productRepository;
+      $this->stateRepository = $stateRepository;
 
     }
     public function ordersByClient()
@@ -54,6 +61,9 @@ class OrderService
       $comment = isset($order['comment']) ? $order['comment'] : '';
       $clientId = $this->getClientIdByOrder();
       $tableId = $this->getTableIdByOrder($order['table'] ?? '');
+
+      /**Address */
+      $cityId = $this->getCityByUuid($order['state'], $order['city'] ?? '');
 
 
 
@@ -102,7 +112,6 @@ class OrderService
       $products = [];
       foreach($productsOrder as $productOrder)
       {
-        $productOrder['identify'];
         $product = $this->productRepository->getProductByUuid($productOrder['identify']);
 
         array_push($products,[
@@ -146,8 +155,11 @@ class OrderService
     private function getClientIdByOrder()
     {
       return auth()->check() ? auth()->user()->id : '';
+    }
 
-
+    private function getCityByUuid(string $uuidState, string $uuid)
+    {
+        return $this->stateRepository->getCityStateByUuid($uuidState, $uuid);
     }
 
     public function getOrdersByTenantId(int $idTenant, string $status, string $date)

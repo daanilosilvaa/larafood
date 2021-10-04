@@ -11,7 +11,20 @@ class Order extends Model
 
   use TenantTrait;
 
-  protected $fillable = ['tenant_id','identify', 'client_id', 'table_id', 'total', 'status', 'comment'];
+  protected $fillable = [
+      'tenant_id',
+      'city_id',
+      'client_id',
+      'identify',
+      'table_id',
+      'total',
+      'status',
+      'option',
+      'district',
+      'address',
+      'number',
+      'complement',
+      'comment'];
 
   /***
    * options Status
@@ -25,6 +38,15 @@ class Order extends Model
        'canceled' => 'Cancelado',
        'delivering' => 'Em transito',
    ];
+
+   /***
+   * options
+   */
+
+  public $statusoption = [
+    'withdraw' => 'Retirar',
+    'delivery' => 'Entrega',
+];
 
   public function tenant()
   {

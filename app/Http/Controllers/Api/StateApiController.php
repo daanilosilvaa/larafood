@@ -27,7 +27,11 @@ class StateApiController extends Controller
 
     public function cities($uuidState)
     {
-        return CityResource::collection($this->stateService->getStateByUuid($uuidState));
+        return CityResource::collection($this->stateService->getCityStateByUuid($uuidState));
+    }
+    public function city($uuidState, $uuid)
+    {
+        return CityResource::collection($this->stateService->getCityByUuid($uuidState,$uuid));
     }
 
 }

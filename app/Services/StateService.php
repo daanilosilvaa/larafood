@@ -17,8 +17,12 @@ class StateService
         return $this->repository->getAllStates();
     }
 
-    public function getStateByUuid(string $uuidState)
+    public function getCityStateByUuid(string $uuidState)
     {
-        return $this->repository->getStateByUuid($uuidState);
+        return $this->repository->getCityStateByUuid($uuidState);
+    }
+    public function getCityByUuid( string $uuidState, string $uuid)
+    {
+        return $this->repository->getCityByUuid($uuidState, $uuid);
     }
 }

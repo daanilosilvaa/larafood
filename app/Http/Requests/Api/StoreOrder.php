@@ -32,9 +32,34 @@ class StoreOrder extends FormRequest
                 'nullable',
                 'exists:tables,uuid'
             ],
+            'state' => [
+                'nullable',
+                'exists:states,uuid'
+            ],
+
+            'city' => [
+                'nullable',
+                'exists:cities,uuid'
+            ],
             'comment' => [
                 'nullable',
                 'max:1000'
+            ],
+            'option' => [
+                'required'
+            ],
+            'district' => [
+                'required'
+            ],
+            'address' => [
+                'required'
+            ],
+            'number' => [
+                'required'
+            ],
+            'complement' => [
+                'nullable',
+                'max:300'
             ],
             'products' => [
                 'required'

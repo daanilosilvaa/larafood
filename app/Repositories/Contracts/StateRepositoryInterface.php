@@ -5,6 +5,7 @@ namespace App\Repositories\Contracts;
 interface StateRepositoryInterface
 {
     public function getAllStates();
-    public function getStateByUuid(string $uuidState);
+    public function getCityStateByUuid(string $uuidState);
+    public function getCityByUuid(string $uuidState, string $uuid);
 }
 

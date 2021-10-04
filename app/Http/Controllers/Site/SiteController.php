@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\Plan;
+use App\Models\State;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -12,7 +13,7 @@ class SiteController extends Controller
   {
 
     $plans = Plan::with('details')->orderBY('price' ,'ASC')->get();
-    
+
       return view('site.pages.home.index', compact('plans'));
   }
 
@@ -22,7 +23,8 @@ class SiteController extends Controller
         return redirect()->back();
       }
 
-      session()->put('plan', $plan);
+      session()->put(['plan', $plan]);
+
 
       return redirect()->route('register');
   }

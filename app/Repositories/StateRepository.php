@@ -21,7 +21,7 @@ class StateRepository implements StateRepositoryInterface
         return $state;
     }
 
-    public function getStateByUuid(string $uuidState)
+    public function getCityStateByUuid(string $uuidState)
     {
         $state = DB::table($this->table)->where('uuid', $uuidState)->first();
 
@@ -31,5 +31,18 @@ class StateRepository implements StateRepositoryInterface
                 ->get();
 
         return $cities;
+    }
+
+    public function getCityByUuid(string $uuidState, string $uuid)
+    {
+        $state = DB::table($this->table)->where('uuid', $uuidState)->first();
+        $city = DB::table('cities_state')
+                ->where('state_id',$state->id)
+                ->where('uuid', $uuid)
+                ->where('active', 1)
+                ->get();
+
+
+        return $city;
     }
 }

@@ -36,13 +36,12 @@ Route::group([
     Route::get('/products/{identify}', 'ProductApiController@show');
     Route::get('/products', 'ProductApiController@productsByTenant');
 
-
-
     Route::post('/orders', 'OrderApiController@store');
     Route::get('/orders/{identify}', 'OrderApiController@show');
 
     Route::get('/states', 'StateApiController@index');
     Route::get('/states/{uuidState}', 'StateApiController@cities');
+    Route::get('/states/{uuidState}/city/{uuid}', 'StateApiController@city');
 
 
 

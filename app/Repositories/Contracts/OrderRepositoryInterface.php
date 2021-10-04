@@ -9,9 +9,16 @@ interface OrderRepositoryInterface
         float $total,
         string $status,
         int $tenantId,
+        string $option = '',
+        string $district = '',
+        string $address = '',
+        string $number = '',
+        string $complement = '',
         string $comment = '',
+        $cityId = '',
         $clientId = '',
         $tableId = ''
+
     );
     public function getOrderByIdentify(string $identify);
     public function registerProductsOrder(int $orderId, array $products);

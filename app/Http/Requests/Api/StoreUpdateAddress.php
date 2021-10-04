@@ -24,7 +24,7 @@ class StoreUpdateAddress extends FormRequest
     public function rules()
     {
         return [
-            'city_id' => ['required'],
+            'city_id' => ['required', 'exists:cities,uuid'],
             'identify' => ['required'],
             'district' => ['required'],
             'address' => ['required'],

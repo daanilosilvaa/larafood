@@ -20,18 +20,30 @@ class OrderRepository implements OrderRepositoryInterface
         float $total,
         string $status,
         int $tenantId,
+        string $option = '',
+        string $district = '',
+        string $address = '',
+        string $number = '',
+        string $complement = '',
         string $comment = '',
+        $cityId = '',
         $clientId = '',
         $tableId = ''
     ) {
         $data = [
-            'tenant_id' => $tenantId,
             'identify' => $identify,
             'total' => $total,
             'status' => $status,
+            'tenant_id' => $tenantId,
+            'option' => $option,
+            'district'=> $district,
+            'address' => $address,
+            'number' => $number,
+            'complement' => $complement,
             'comment' => $comment,
         ];
 
+        if ($cityId) $data['city_id'] = $cityId;
         if ($clientId) $data['client_id'] = $clientId;
         if ($tableId) $data['table_id'] = $tableId;
 
